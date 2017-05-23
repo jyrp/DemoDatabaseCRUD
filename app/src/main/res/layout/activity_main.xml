@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.a15017135.demodatabasecrud.MainActivity">
+    tools:context="com.example.a15017135.demodatabasecrud.MainActivity"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/textView"
@@ -51,7 +52,13 @@
     <TextView
         android:id="@+id/tvDBContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@android:color/holo_blue_bright" />
+        android:layout_height="39dp"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:layout_weight="0.15" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.widget.LinearLayout>

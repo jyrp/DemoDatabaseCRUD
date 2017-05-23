@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvDBContent;
     EditText etContent;
     ArrayList<String> al;
+    ListView lv;
+    ArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
         etContent = (EditText) findViewById(R.id.etContent);
         btnRetrieve = (Button) findViewById(R.id.btnRetrieve);
         tvDBContent = (TextView) findViewById(R.id.tvDBContent);
+        lv = (ListView)this.findViewById(R.id.lv);
         al = new ArrayList<String>();
+
+        lv = (ListView) findViewById(R.id.lv);
+        aa = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, al);
+        lv.setAdapter(aa);
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 tvDBContent.setText(txt);
             }
         });
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
