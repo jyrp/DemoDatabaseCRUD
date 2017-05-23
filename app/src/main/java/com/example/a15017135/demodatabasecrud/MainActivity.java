@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnAdd = (Button)findViewById(R.id.btnAdd);
-        btnEdit = (Button)findViewById(R.id.btnEdit);
-        etContent = (EditText)findViewById(R.id.etContent);
-        btnRetrieve = (Button)findViewById(R.id.btnRetrieve);
-        tvDBContent = (TextView)findViewById(R.id.tvDBContent);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnEdit = (Button) findViewById(R.id.btnEdit);
+        etContent = (EditText) findViewById(R.id.etContent);
+        btnRetrieve = (Button) findViewById(R.id.btnRetrieve);
+        tvDBContent = (TextView) findViewById(R.id.tvDBContent);
         al = new ArrayList<String>();
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 long row_affected = dbh.insertNote(data);
                 dbh.close();
 
-                if (row_affected != -1){
+                if (row_affected != -1) {
                     Toast.makeText(MainActivity.this, "Insert successful",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 dbh.close();
 
                 String txt = "";
-                for (int i = 0; i< al.size(); i++){
+                for (int i = 0; i < al.size(); i++) {
                     String tmp = al.get(i);
                     txt += tmp + "\n";
                 }
@@ -94,12 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == 9){
+        if (resultCode == RESULT_OK && requestCode == 9) {
             btnRetrieve.performClick();
         }
     }

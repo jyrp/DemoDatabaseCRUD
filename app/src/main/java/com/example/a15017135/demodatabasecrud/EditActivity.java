@@ -1,5 +1,6 @@
 package com.example.a15017135.demodatabasecrud;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ public class EditActivity extends AppCompatActivity {
          btnUpdate = (Button)findViewById(R.id.btnUpdate);
         btnDelete = (Button)findViewById(R.id.btnDelete);
 
-        Intent i = getIntent();
+        final Intent i = getIntent();
         data = (Note) i.getSerializableExtra("data");
 
         tvID.setText("ID: " + data.getId());
@@ -39,6 +40,7 @@ public class EditActivity extends AppCompatActivity {
                 data.setNoteContent(etContent.getText().toString());
                 dbh.updateNote(data);
                 dbh.close();
+                finish();
             }
         });
 
@@ -48,6 +50,7 @@ public class EditActivity extends AppCompatActivity {
                 DBHelper dbh = new DBHelper(EditActivity.this);
                 dbh.deleteNote(data.getId());
                 dbh.close();
+                finish();
             }
         });
 
